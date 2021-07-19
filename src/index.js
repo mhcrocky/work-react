@@ -1,19 +1,18 @@
 import React, { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom'
-import './index.scss'
+import './scss/index.scss'
 
-import reportWebVitals from './reportWebVitals'
+import {ThemeProvider} from '@material-ui/core/styles'
+import * as theme from './layout/config/theme'
+import reportWebVitals from './util/reportWebVitals'
 
 const Router  = lazy(()=>import('./router/'))
 
 ReactDOM.render(
-  <Suspense fallback={<>Loading</>}>
-    <Router />
-  </Suspense>
-  ,document.getElementById('root')
+    <ThemeProvider theme={theme.main}>
+        <Suspense fallback={<>Loading</>}>
+            <Router />
+        </Suspense>
+    </ThemeProvider>,document.getElementById('root')
 )
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals()

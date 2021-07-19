@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core'
-import {isUserLoggedIn} from '../../redux/util'
-import {logOut} from "../../firebase/index";
+
+import FixedNav from '../../layout/fixedNav';
 
 const Index = () => {
     let history = useHistory()
@@ -10,17 +10,7 @@ const Index = () => {
     }
     return (
     <div className={'homePage'}>
-        <div className="fixed-nav">
-            {(isUserLoggedIn())?(
-            <>
-                <Button onClick={()=>goToPage('/dashboard')}>Dashboard</Button>
-                <Button onClick={()=>logOut()} >Logout</Button>
-            </>
-            ):(<>
-                <Button onClick={()=>goToPage('/login')} >Login </Button>
-                <Button onClick={()=>goToPage('/register')} >Register </Button>
-            </>)}
-        </div>
+        <FixedNav />
         <div className="background">
             <div className="elementsWrapper">
                 <div className="piece about-us" >
@@ -28,7 +18,10 @@ const Index = () => {
                         <span className="text">About Us</span>
                     </div>
                     <div className="desc">
+                        <div>
+                            
                         <Button variant={'contained'} color={'primary'} onClick={()=>goToPage('/aboutus')} >About Us</Button>
+                        </div>
                     </div>
                 </div>
                 <div className="piece projects" >

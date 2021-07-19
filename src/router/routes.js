@@ -17,6 +17,10 @@ const Routes = [
     },{
       path: '/projects',
       component: lazy(() => import('../page/home/projects'))
+    },{
+      path: '/dashboard',
+      type:'AUTH',
+      component: lazy(() => import('../page/user/dashboard'))
     }
 ]
 

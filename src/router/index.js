@@ -2,7 +2,7 @@ import { Suspense, lazy, useEffect, useState } from 'react'
 import { BrowserRouter as AppRouter, Route, Switch ,Redirect} from 'react-router-dom'
 
 import {Routes} from './routes'
-import {isUserLoggedIn} from '../redux/util'
+import {isUserLoggedIn} from '../util/auth'
 import {auth } from '../firebase/index'
 const HomePage = lazy(()=>import('../page/home/index'))
 

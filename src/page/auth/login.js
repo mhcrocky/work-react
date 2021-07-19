@@ -26,10 +26,6 @@ const validationSchema = yup.object({
   });
 
 const useStyles = makeStyles((theme) => ({
-    title: {
-        textAlign:'center',
-        width:'100%'
-    },
     formControl:{
         margin:'20vh 0px'
     },
@@ -62,7 +58,7 @@ export default function ButtonAppBar() {
                 <Typography variant="h6" className={classes.title}>Login Page</Typography>
             </Toolbar>
         </AppBar>
-        <Container>
+        <Container maxWidth={'sm'} >
             <form className={classes.formControl} onSubmit={formik.handleSubmit}>
                 <TextField  className={classes.TextField}
                     fullWidth
@@ -74,6 +70,7 @@ export default function ButtonAppBar() {
                     error={formik.touched.email && Boolean(formik.errors.email)}
                     helperText={formik.touched.email && formik.errors.email}
                     variant="outlined"
+                    size={'small'}
                 />
                 <TextField className={classes.TextField}
                     fullWidth
@@ -86,6 +83,7 @@ export default function ButtonAppBar() {
                     error={formik.touched.password && Boolean(formik.errors.password)}
                     helperText={formik.touched.password && formik.errors.password}
                     variant="outlined"
+                    size={'small'}
                 />
                 <Button color="primary" size={'large'} variant="contained" fullWidth type="submit">
                     Submit
