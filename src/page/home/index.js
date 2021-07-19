@@ -1,36 +1,37 @@
+import { Button } from '@material-ui/core'
 import './index.scss'
 
-const HomePage = () => {
+const Index = () => {
   return (
     <div>
         <div className="fixed-nav">
-            <button>Login </button>
-            <button>Register </button>
+            <Button >Login </Button>
+            <Button >Register </Button>
         </div>
         <div className="background">
             <div className="elementsWrapper">
-                <div className="piece blur" >
+                <div className="piece about-us" >
                     <div className="title">
                         <span className="text">About Us</span>
                     </div>
                     <div className="desc">
-                        <button>About Us</button>
+                        <Button>About Us</Button>
                     </div>
                 </div>
-                <div className="piece contrast" >
+                <div className="piece projects" >
                     <div className="title">
                         <span className="text">Projects</span>
                     </div>
                     <div className="desc">
-                        <button >Projects</button>
+                        <Button >Projects</Button>
                     </div>
                 </div>
-                <div className="piece hue-rotate" >
+                <div className="piece members" >
                     <div className="title">
                         <span className="text">Members</span>
                     </div>
                     <div className="desc">
-                        <button >Members</button>
+                        <Button >Members</Button>
                     </div>
                 </div>
                 <div className="main">
@@ -41,4 +42,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default Index

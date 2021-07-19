@@ -9,7 +9,7 @@ body {
       position: relative;
       width: 100%;
       height: 100vh;
-      background-image: url("//localhost:3000/img/about.jpg");
+      background-image: url("/img/about.jpg");
       background-size: cover;
       background-repeat: no-repeat;
       color: white;
@@ -87,49 +87,14 @@ body {
         .main{
           width: calc(100% / 3);
         }
-        .blur {
-          backdrop-filter: blur(15px);
-          -webkit-backdrop-filter: blur(15px);
+        .about-us{
+          background-image: url("/img/aboutme.jpg");
         }
-        
-        .brightness {
-          backdrop-filter: brightness(1.5);
-          -webkit-backdrop-filter: brightness(1.5);
+        .projects{
+          background-image: url("/img/project.jpg");
         }
-  
-        .contrast {
-          backdrop-filter: contrast(1.5);
-          -webkit-backdrop-filter: contrast(1.5);
-        }
-  
-        .grayscale {
-          backdrop-filter: grayscale(1);
-          -webkit-backdrop-filter: grayscale(1);
-        }
-  
-        .hue-rotate {
-          backdrop-filter: hue-rotate(240deg);
-          -webkit-backdrop-filter: hue-rotate(240deg);
-        }
-  
-        .invert {
-          backdrop-filter: invert(0.7);
-          -webkit-backdrop-filter: invert(0.7);
-        }
-  
-        .opacity {
-          backdrop-filter: opacity(0.1);
-          -webkit-backdrop-filter: opacity(0.1);
-        }
-  
-        .saturate {
-          backdrop-filter: saturate(2);
-          -webkit-backdrop-filter: saturate(2);
-        }
-        
-        .sepia {
-          backdrop-filter: sepia(90%);
-          -webkit-backdrop-filter: sepia(90%);
+        .members{
+          background-image: url("/img/bg_3.jpg");
         }
       }
     }
@@ -154,5 +119,12 @@ body {
       padding: 10px 20px;
       border-radius: 5px 5px 0 0;
       box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    }
+    .MuiButton-root{
+        border-radius: 99px;
+        margin: 0px 10px;
+    }
+    .MuiButton-label{
+        color: white;
     }
   }
