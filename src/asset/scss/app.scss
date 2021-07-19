@@ -1,0 +1,8 @@
+body{
+    #root{
+        @import './page/home.scss';
+        @import './page/auth.scss';
+        
+        @import './matStyles.scss';
+    }
+}

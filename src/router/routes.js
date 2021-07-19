@@ -8,6 +8,15 @@ const Routes = [
       path: '/register',
       type:'UN_AUTH',
       component: lazy(() => import('../page/auth/register'))
+    },{
+      path: '/aboutus',
+      component: lazy(() => import('../page/home/aboutUs'))
+    },{
+      path: '/members',
+      component: lazy(() => import('../page/home/members'))
+    },{
+      path: '/projects',
+      component: lazy(() => import('../page/home/projects'))
     }
 ]
 

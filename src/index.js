@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import './index.scss'
+
 import reportWebVitals from './reportWebVitals'
 
 const Router  = lazy(()=>import('./router/'))

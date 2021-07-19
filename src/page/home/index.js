@@ -1,6 +1,5 @@
 import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core'
-import './index.scss'
 import {isUserLoggedIn} from '../../redux/util'
 import {logOut} from "../../firebase/index";
 
@@ -10,7 +9,7 @@ const Index = () => {
         history.push(route)
     }
     return (
-    <div>
+    <div className={'homePage'}>
         <div className="fixed-nav">
             {(isUserLoggedIn())?(
             <>
@@ -18,8 +17,8 @@ const Index = () => {
                 <Button onClick={()=>logOut()} >Logout</Button>
             </>
             ):(<>
-                <Button onClick={()=>goToPage('login')} >Login </Button>
-                <Button onClick={()=>goToPage('register')} >Register </Button>
+                <Button onClick={()=>goToPage('/login')} >Login </Button>
+                <Button onClick={()=>goToPage('/register')} >Register </Button>
             </>)}
         </div>
         <div className="background">
@@ -29,7 +28,7 @@ const Index = () => {
                         <span className="text">About Us</span>
                     </div>
                     <div className="desc">
-                        <Button>About Us</Button>
+                        <Button variant={'contained'} color={'primary'} onClick={()=>goToPage('/aboutus')} >About Us</Button>
                     </div>
                 </div>
                 <div className="piece projects" >
@@ -37,7 +36,7 @@ const Index = () => {
                         <span className="text">Projects</span>
                     </div>
                     <div className="desc">
-                        <Button >Projects</Button>
+                        <Button variant={'contained'} color={'primary'} onClick={()=>goToPage('/projects')} >Projects</Button>
                     </div>
                 </div>
                 <div className="piece members" >
@@ -45,7 +44,7 @@ const Index = () => {
                         <span className="text">Members</span>
                     </div>
                     <div className="desc">
-                        <Button >Members</Button>
+                        <Button variant={'contained'} color={'primary'} onClick={()=>goToPage('/members')} >Members</Button>
                     </div>
                 </div>
                 <div className="main">
