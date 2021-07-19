@@ -4,10 +4,13 @@
 .MuiButton-label{
     color: white;
 }
-.MuiOutlinedInput-notchedOutline{
+.MuiInputBase-root{
   fieldset{
-    padding-left: 10px;
+    padding-left: 16px;
   }
+}
+.MuiInputLabel-root{
+  padding-left: 10px;
 }
 .MuiOutlinedInput-root{
   border-radius: 99px;

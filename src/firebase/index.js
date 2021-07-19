@@ -57,4 +57,4 @@ const logOut = () => {
         return true
     })
 }
-export {login,register,logOut}
+export {login, register, logOut, auth}

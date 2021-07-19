@@ -87,7 +87,7 @@ export default function ButtonAppBar() {
                     helperText={formik.touched.password && formik.errors.password}
                     variant="outlined"
                 />
-                <Button color="primary" variant="contained" fullWidth type="submit">
+                <Button color="primary" size={'large'} variant="contained" fullWidth type="submit">
                     Submit
                 </Button>
             </form>

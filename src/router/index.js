@@ -1,11 +1,14 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import { BrowserRouter as AppRouter, Route, Switch ,Redirect} from 'react-router-dom'
 
 import {Routes} from './routes'
 import {isUserLoggedIn} from '../redux/util'
+import {auth } from '../firebase/index'
 const HomePage = lazy(()=>import('../page/home/index'))
 
 const Router = () => {
+
+    const [user,setUser] = useState(null)
     const routesAndPaths = () => {
         const routes = []
         const paths = []
@@ -58,7 +61,12 @@ const Router = () => {
             </Route>
         )
     }
-
+    useEffect(()=>{
+        console.log(user)
+        auth.onAuthStateChanged(()=>{
+            setUser(auth.currentUser)
+        })
+    });
     return (
         <AppRouter>
             <Switch>
