@@ -1,12 +1,26 @@
+import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core'
 import './index.scss'
+import {isUserLoggedIn} from '../../redux/util'
+import {logOut} from "../../firebase/index";
 
 const Index = () => {
-  return (
+    let history = useHistory()
+    const goToPage = (route) => {
+        history.push(route)
+    }
+    return (
     <div>
         <div className="fixed-nav">
-            <Button >Login </Button>
-            <Button >Register </Button>
+            {(isUserLoggedIn())?(
+            <>
+                <Button onClick={()=>goToPage('/dashboard')}>Dashboard</Button>
+                <Button onClick={()=>logOut()} >Logout</Button>
+            </>
+            ):(<>
+                <Button onClick={()=>goToPage('login')} >Login </Button>
+                <Button onClick={()=>goToPage('register')} >Register </Button>
+            </>)}
         </div>
         <div className="background">
             <div className="elementsWrapper">
