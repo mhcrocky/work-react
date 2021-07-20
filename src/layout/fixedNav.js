@@ -1,16 +1,17 @@
 import { useHistory } from 'react-router-dom';
 import { Button } from '@material-ui/core'
 import {isUserLoggedIn} from '../util/auth'
-
+import useStyles from '../page/home/_style';
 import * as auth from "../firebase/auth";
 
 const FixedNav = () => {
+    let classes = useStyles()
     let history = useHistory()
     const goToPage = (route) => {
         history.push(route)
     }
     return (
-        <div className="fixed-nav">
+        <div className={classes.fixedNav}>
             {(isUserLoggedIn())?(
             <>
                 <Button className={'text-black'} variant={'outlined'} color={'secondary'} onClick={()=>goToPage('/dashboard')}>Dashboard</Button>

@@ -1,21 +1,34 @@
-import { Suspense, lazy, useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { BrowserRouter as AppRouter, Route, Switch ,Redirect} from 'react-router-dom'
 
 import {Routes} from './routes'
 import {isUserLoggedIn} from '../util/auth'
 import {auth } from '../firebase/index'
 
-const HomePage = lazy(()=>import('../page/home/index'))
+const HomePage = lazy(()=>import('../page/home/_index'))
+const ErrorPage = lazy(()=>import('../page/home/error'))
 
-const Router = () => {
+const FinalRoute = props => {
+    const route = props.route
+    if (route.type ==='UN_AUTH'&&isUserLoggedIn()) {
+        return <Redirect to='/' />
+    } else if (route.type ==='AUTH' && !isUserLoggedIn()) {
+        return <Redirect to='/login' />
+    }
+    return (<route.component {...props} >
+        {props.children??(
+            <>{ResolveRoutes(props.children)}</>
+        )}
+    </route.component>)
+}
 
-    const [user,setUser] = useState(null)
-    const routesAndPaths = () => {
+const ResolveRoutes = (Routes) => {
+    const routesAndPaths = (route_list) => {
         const routes = []
         const paths = []
 
-        if (Routes) {
-            Routes.map(route => {
+        if (route_list) {
+            route_list.map(route => {
                 routes.push(route)
                 paths.push(route.path)
                 return (<></>);
@@ -24,74 +37,49 @@ const Router = () => {
     
         return { routes, paths }
     }
+    const { routes, paths } = routesAndPaths(Routes)
 
-    const FinalRoute = props => {
-        const route = props.route
-        console.log(route)
-        // let action, resource
-        // if (route.meta) {
-        //     action = route.meta.action ? route.meta.action : null
-        //     resource = route.meta.resource ? route.meta.resource : null
-        // }
-        if (route.type ==='UN_AUTH'&&isUserLoggedIn()) {
-            return <Redirect to='/' />
-        } else if (route.type ==='AUTH' && !isUserLoggedIn()) {
-            return <Redirect to='/login' />
-        }
-        return <route.component {...props} />
-    }
-
-    const ResolveRoutes = () => {
-        const { routes, paths } = routesAndPaths()
-        const routerProps = {}
-
-        return(
-            <Route path={paths} >
-                <Switch>
-                {routes.map(route => {
+    const routerProps = {}
+    return(
+        <Route path={paths}>
+            <Switch>
+            {routes.map(route => {
+                return (
+                <Route key={route.path} path={route.path} exact={route.exact === true} render={props => {
+                    Object.assign(routerProps, { ...props, meta: route.meta })
                     return (
-                    <Route key={route.path} path={route.path} exact={route.exact === true} render={props => {
-                        Object.assign(routerProps, { ...props, meta: route.meta })
-                        return (
-                        <Suspense fallback={null}>
-                            <FinalRoute route={route} {...props} />
-                        </Suspense>)}} 
-                    />)
-                })}
-                </Switch>
-            </Route>
-        )
-    }
+                    <Suspense fallback={route.spinner}>
+                        <FinalRoute route={route} {...props} />
+                    </Suspense>)}} 
+                />)
+            })}
+            </Switch>
+        </Route>
+    )
+}
 
-
+const Render = () => {
+    const [user,setUser] = useState(null)
     useEffect(()=>{
-        console.log(user)
-        // const project = database.ref('/project');
-        // project.on('value', (snapshot) => {
-        //     const todos = snapshot.val();
-        //     const projectList = [];
-        //     for (let id in todos) {
-        //       projectList.push({ id, ...todos[id] });
-        //     }
-        //     console.log(projectList)
-        // });
+        let currentUser = user;
         auth.onAuthStateChanged(()=>{
-            setUser(auth.currentUser)
-            // if(auth.currentUser){
-            //     // auth.currentUser.
-            // }
+            if(auth.currentUser){
+                currentUser = auth.currentUser
+                setUser(currentUser)
+            }
         })
     });
+
     return (
         <AppRouter>
             <Switch>
-                <Route exact path={'/'} render={props=>(<HomePage/>)} />
-                {ResolveRoutes()}
-                <Route exact path={'*'} render={props=>(<>404</>)} />
+                <Route exact path={'/'} render={props=>(<HomePage />)} />
+                {ResolveRoutes(Routes)}
+                <Route exact path={'*'} render={props=>(<ErrorPage />)} />
             </Switch>
         </AppRouter>
 
     )
 
 }
-export default Router
+export  {Render,ResolveRoutes,FinalRoute}

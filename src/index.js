@@ -1,17 +1,17 @@
-import React, { lazy, Suspense } from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
-import './scss/index.scss'
+import './index.css'
 
 import {ThemeProvider} from '@material-ui/core/styles'
 import * as theme from './layout/config/theme'
 import reportWebVitals from './util/reportWebVitals'
 
-const Router  = lazy(()=>import('./router/'))
+import * as Router from './router'
 
 ReactDOM.render(
     <ThemeProvider theme={theme.main}>
         <Suspense fallback={<>Loading</>}>
-            <Router />
+            <Router.Render />
         </Suspense>
     </ThemeProvider>,document.getElementById('root')
 )
