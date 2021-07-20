@@ -4,6 +4,7 @@ import { BrowserRouter as AppRouter, Route, Switch ,Redirect} from 'react-router
 import {Routes} from './routes'
 import {isUserLoggedIn} from '../util/auth'
 import {auth } from '../firebase/index'
+
 const HomePage = lazy(()=>import('../page/home/index'))
 
 const Router = () => {
@@ -61,10 +62,24 @@ const Router = () => {
             </Route>
         )
     }
+
+
     useEffect(()=>{
         console.log(user)
+        // const project = database.ref('/project');
+        // project.on('value', (snapshot) => {
+        //     const todos = snapshot.val();
+        //     const projectList = [];
+        //     for (let id in todos) {
+        //       projectList.push({ id, ...todos[id] });
+        //     }
+        //     console.log(projectList)
+        // });
         auth.onAuthStateChanged(()=>{
             setUser(auth.currentUser)
+            // if(auth.currentUser){
+            //     // auth.currentUser.
+            // }
         })
     });
     return (

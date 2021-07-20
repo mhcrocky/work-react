@@ -11,7 +11,7 @@ import {
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-import {login} from "../../firebase/index";
+import * as auth from "../../firebase/auth";
 // import { useHistory } from 'react-router-dom';
 
 const validationSchema = yup.object({
@@ -44,7 +44,7 @@ export default function ButtonAppBar() {
         },
         validationSchema: validationSchema,
         onSubmit: async(data) => {
-           login(data)
+           auth.login(data)
         },
     });
     useEffect(()=>{

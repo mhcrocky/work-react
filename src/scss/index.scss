@@ -1,3 +1,5 @@
+@import './tailwind.css';
+
 body{
     #root{
         .homePage{
@@ -9,6 +11,7 @@ body{
                 background-size: cover;
                 background-repeat: no-repeat;
                 color: white;
+                transition: all 1s ease-in-out;
                 .elementsWrapper {
                     position: relative;
                     display: flex;
@@ -16,10 +19,10 @@ body{
                     height: 100vh;
                     width: 100%;
                     align-items: center;
-                    transition: all 0s ease-in-out;
+                    transition: all 1s ease-in-out;
                     div.piece {
                         position: relative;
-                        width: calc(100% / 3);
+                        width: calc(100% / 6);
                         height: 100vh;
                         transition: all 1s ease-in-out;
                         cursor: pointer;
@@ -31,14 +34,16 @@ body{
                         overflow: hidden;
                         background-position: center;
                         background-size: cover;
+                        min-width: 200px;
                         &:hover {
                             width: 300vw;
                             align-items: flex-end;
                             .title{
                                 opacity: 0;
+                                transition: all 1s ease-in-out;
                             }
                             .desc {
-                                height: calc(100% - 40px);
+                                transition: all 1s ease-in-out;
                                 opacity: 1;
                             }
                         }
@@ -46,18 +51,20 @@ body{
                             width: 100%;
                             padding: 20px;
                             text-align: center;
+                            transition: all 1s ease-in-out;
                         }
                         .text {
                             text-transform: uppercase;
                             -webkit-text-stroke: 1px black;
                             -webkit-text-fill-color: white;
                             font-size: 30px;
+                            transition: all 1s ease-in-out;
                             &:nth-child(2) {
                                 padding-top: 10px;
                             }
                         }
             
-                        .desc {
+                        .desc { 
                             position: absolute;
                             top: 20px;
                             left: 20px;
@@ -66,24 +73,84 @@ body{
                             transition: all 1s ease-in-out;
                             border-radius: 5px;
                             border: 1px solid white;
-                            background-color: rgba(white, 0.9);
+                            background-color: rgba(white, 0.3);
                             color: black;
                             padding: 10px;
                             min-width: 100px;
                             width: calc(100% - 40px);
-                            height: 0px;
+                            height: calc(100% - 40px);
+                            pre{
+                                overflow: hidden;
+                            }
+                            .text{
+                                height: calc(100% - 40px);
+                            }
                         }
                     }
                     .main{
-                        width: calc(100% / 3);
+                        width: 100%;
+                        min-width: 270px;
+                        transition: all 20s ease-in-out;
+                        height:100vh;
+                        position: relative;
+                        padding: 10px;
+                        display: flex;
+                        .avartar{
+                            transition: all 1s ease-in-out;
+                            transition-delay: 1s;
+                        }
+                        .profile{
+                            transition: all 1s ease-in-out;
+                            height: 100px;
+                            .avartar{
+                                height:80px;
+                                width:80px;
+                                margin:5px 10px;
+                            }
+                            .aboutme{
+                                opacity: 0;
+                            }
+                        }
+                        .profile-lg{
+                            transition: all 1s ease-in-out;
+                            float: right;
+                            .avartar{
+                                height:200px;
+                                width:200px;
+                                margin:5px 10px;
+                                position: relative;
+                                top: 70px;
+                                margin: 35px;
+                            }
+                        }
+                        .desc{
+                            transition: all 1s ease-in-out;
+                            border-radius: 5px;
+                            border: 1px solid white;
+                            background-color: rgba(white, 0.3);
+                            width: 100%;
+                            padding: 20px;
+                            color: black;
+                            height:calc(100% - 100px);
+                        }
+                        .desc-sm{
+                            transition: all 1s ease-in-out;
+                            border-radius: 5px;
+                            border: 1px solid white;
+                            background-color: rgba(white, 0.3);
+                            width: 100%;
+                            padding: 20px;
+                            color: black;
+                            height:0px
+                        }
                     }
-                    .about-us{
+                    .about{
                         background-image: url("/img/aboutme.jpg");
                     }
-                    .projects{
+                    .project{
                         background-image: url("/img/project.jpg");
                     }
-                    .members{
+                    .member{
                         background-image: url("/img/bg_3.jpg");
                     }
                 }

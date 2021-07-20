@@ -11,7 +11,7 @@ import {
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-import {register} from "../../firebase/index";
+import * as auth from "../../firebase/auth";
 // import { useHistory } from 'react-router-dom';
 
 
@@ -49,7 +49,7 @@ const RegisterPage = () => {
         },
         validationSchema: validationSchema,
         onSubmit: async(data) => {
-            register(data)
+            auth.register(data)
         },
       });
 

@@ -2,7 +2,7 @@ import { useHistory } from 'react-router-dom';
 import { Button } from '@material-ui/core'
 import {isUserLoggedIn} from '../util/auth'
 
-import {logOut} from "../firebase/index";
+import * as auth from "../firebase/auth";
 
 const FixedNav = () => {
     let history = useHistory()
@@ -14,7 +14,7 @@ const FixedNav = () => {
             {(isUserLoggedIn())?(
             <>
                 <Button className={'text-black'} variant={'outlined'} color={'secondary'} onClick={()=>goToPage('/dashboard')}>Dashboard</Button>
-                <Button className={'text-black'} variant={'outlined'} color={'secondary'} onClick={()=>logOut()} >Logout</Button>
+                <Button className={'text-black'} variant={'outlined'} color={'secondary'} onClick={()=>auth.logOut()} >Logout</Button>
             </>
             ):(<>
                 <Button className={'text-black'} variant={'outlined'} color={'secondary'} onClick={()=>goToPage('/login')} >Login </Button>
