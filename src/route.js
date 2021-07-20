@@ -1,12 +1,15 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { BrowserRouter as AppRouter, Route, Switch ,Redirect} from 'react-router-dom'
 
-import {Routes} from './routes'
-import {isUserLoggedIn} from '../util/auth'
-import {auth } from '../firebase/index'
+import * as Auth from './page/auth'
+import * as Home from './page/home'
+import * as Admin from './page/admin'
+import * as User from './page/user'
 
-const HomePage = lazy(()=>import('../page/home/_index'))
-const ErrorPage = lazy(()=>import('../page/home/error'))
+import {isUserLoggedIn} from './util/auth'
+import {auth } from './firebase/index'
+
+const ErrorPage = lazy(()=>import('./page/home/error'))
 
 const FinalRoute = props => {
     const route = props.route
@@ -73,8 +76,10 @@ const Render = () => {
     return (
         <AppRouter>
             <Switch>
-                <Route exact path={'/'} render={props=>(<HomePage />)} />
-                {ResolveRoutes(Routes)}
+                {ResolveRoutes(Auth.routes)}
+                {ResolveRoutes(User.routes)}
+                {ResolveRoutes(Admin.routes)}
+                {ResolveRoutes(Home.routes)}
                 <Route exact path={'*'} render={props=>(<ErrorPage />)} />
             </Switch>
         </AppRouter>

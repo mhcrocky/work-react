@@ -1,6 +1,6 @@
 import { makeStyles }   from "@material-ui/core"
 import bgDefault        from '../../img/about.jpg'
-import bgHomeAbout      from '../../img/aboutme.jpg'
+import bgHomeAbout      from '../../img/bg_1.jpg'
 import bgHomeProject    from '../../img/project.jpg'
 import bgHomeMember     from '../../img/bg_3.jpg'
 
@@ -41,43 +41,46 @@ const useStyles =  makeStyles((theme)=>({
         overflow: 'hidden',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
-        minWidth: '200px',
+        minWidth: '20vw',
         '&:hover': {
-            width: '300vw',
+            width: '200vw',
             alignItems: 'flex-end',
+            
         },
         '&:hover .title':{
-            opacity: '0',
             transition: 'all 1s ease-in-out',
         },
         '&:hover .desc': {
             transition: 'all 1s ease-in-out',
             opacity: '1',
+            height: 'calc(100% - 110px)',
         },
         '& .title':{
             width: '100%',
             padding: '20px',
             textAlign: 'center',
-            transition: 'all 1s ease-in-out',
+            display:'flex',
+            flexFlow:'column'
         },
         '& .desc':{
-            position: 'absolute',
-            top: '20px',
-            left: '20px',
             opacity: '0',
             justifyContent: 'center',
             transition: 'all 1s ease-in-out',
             borderRadius: '5px',
             border: '1px solid white',
-            backgroundColor: 'rgba(white, 0.3)',
+            backgroundColor: 'rgba(255,255,255,.7)',
             color: 'black',
             padding: '10px',
             minWidth: '100px',
-            width: 'calc(100% - 40px)',
-            height: 'calc(100% - 40px)',
+            width: '100%',
+            display:'flex',
+            height: '0px',
             '& text':{
-                height: 'calc(100% - 40px)',
+                height: 'calc(100% - 30px)',
             },
+            '& pre':{
+                width:'100%'
+            }
         },
 
         '& .text':{
@@ -94,33 +97,24 @@ const useStyles =  makeStyles((theme)=>({
     homeCore:{
         width: '100%',
         minWidth: '270px',
-        transition: 'all 1s ease-in-out',
         height: '100vh',
         position: 'relative',
         padding: '10px',
-        display: 'flex',
-        '& .profile':{
-            transition: 'all 1s ease-in-out',
-            float: 'right',
-        },
         '& .avartar':{
             transition: 'all 1s ease-in-out',
-            height: '200px',
-            width: '200px',
+            height: '230px',
+            width: '230px',
             margin: '5px 10px',
             position: 'relative',
-            top: '70px',
-            margin: '35px',
+            top:'100px',
         },
-        '& .desc':{
-            transition: 'all 1s ease-in-out',
-            borderRadius: '5px',
-            border: '1px solid white',
-            backgroundColor: 'rgba(white, 0.3)',
-            width: '100%',
-            padding: '20px',
-            color: 'black',
-            height: '0px',
+        '&:hover .avartar':{
+            height: '100px',
+            width: '100px',
+            top:'0px'
+        },
+        '&:hover .desc':{
+            height:'calc(100% - 175px)'
         },
     },
     homeAbout:{

@@ -6,7 +6,7 @@ import {ThemeProvider} from '@material-ui/core/styles'
 import * as theme from './layout/config/theme'
 import reportWebVitals from './util/reportWebVitals'
 
-import * as Router from './router'
+import * as Router from './route'
 
 ReactDOM.render(
     <ThemeProvider theme={theme.main}>

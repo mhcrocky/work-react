@@ -22,18 +22,18 @@ const Appbar = (props) => {
 
     const classes = useStyles()
     return (
-        <ThemeProvider theme={theme.appbar}>
-            <AppBar position="static">
+        // <ThemeProvider theme={theme.main}>
+            <AppBar position="static" color={'inherit'}>
                 <Toolbar>
                     <div style={{ display:'contents' }}>    
-                        <Button className={classes.nabButton} size={'large'} color={'secondary'} >Dashboard</Button>
-                        <Button className={classes.nabButton} size={'large'} color={'secondary'} >Dashboard</Button>
+                        <Button className={classes.nabButton} size={'large'}>Dashboard</Button>
+                        <Button className={classes.nabButton} size={'large'}>Dashboard</Button>
                     </div>
                     <Typography variant="h6" className={classes.title}>{props.title}</Typography>
-                    <Button variant={''} color={'danger'}>Logout</Button>
+                    <Button variant={'contained'} color={'inherit'}>Logout</Button>
                 </Toolbar>
             </AppBar>
-        </ThemeProvider>
+        // </ThemeProvider>
     )
 }
 export default Appbar

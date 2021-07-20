@@ -10,15 +10,9 @@ import useStyles from './_style';
 
 
 
-const Index = () => {
+const Home = () => {
     let history = useHistory()
     const classes = useStyles()
-
-    const [hover,setHover]  = useState(false)
-
-    useEffect(()=>{
-        console.log(hover)
-    })
 
     const pieces = [{
             name:'about',
@@ -35,12 +29,11 @@ const Index = () => {
         }
     ]
     const goToPage = (route) => {
-        console.log(hover)
         history.push(route)
     }
     const HomePiece = (props) => {
         return(
-            <div onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} className={`${classes.homePiece} ${props.class}`} >
+            <div className={`${classes.homePiece} ${props.class}`} >
                 <div className="title">
                     <span className="text">{props.name}</span>
                 </div>
@@ -57,7 +50,7 @@ const Index = () => {
         const user = auth.user()
         console.log()
         return (user?
-        (<div className="profile">
+        (<div className="title">
             <Avatar alt="" src={(user.photoURL?user.photoURL:defaultImage)} className="avartar" />
             <div className="relative pl-10" >
                     {(user?user.displayName:'')}
@@ -72,7 +65,7 @@ const Index = () => {
                 {pieces.map((piece,index)=>(
                     <HomePiece name={piece.name} desc={piece.desc} class={piece.class} key={index}/>
                 ))}
-                <div className={`${classes.homeCore}`}>
+                <div className={`${classes.homePiece} ${classes.homeCore}`}>
                     <div style={{ display:'block',height:'100%',width:'100%' }}>
                         <Profile />
                         <div className="desc">
@@ -89,4 +82,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default Home

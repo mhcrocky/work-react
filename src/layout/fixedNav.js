@@ -14,7 +14,7 @@ const FixedNav = () => {
         <div className={classes.fixedNav}>
             {(isUserLoggedIn())?(
             <>
-                <Button className={'text-black'} variant={'outlined'} color={'secondary'} onClick={()=>goToPage('/dashboard')}>Dashboard</Button>
+                <Button className={'text-black'} variant={'outlined'} color={'secondary'} onClick={()=>goToPage('/user/dashboard')}>Dashboard</Button>
                 <Button className={'text-black'} variant={'outlined'} color={'secondary'} onClick={()=>auth.logOut()} >Logout</Button>
             </>
             ):(<>
