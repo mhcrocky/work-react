@@ -34,7 +34,7 @@ const ResolveRoutes = (Routes) => {
             route_list.map(route => {
                 routes.push(route)
                 paths.push(route.path)
-                return (<></>);
+                return (<></>)
             })
         }
     
@@ -64,14 +64,14 @@ const ResolveRoutes = (Routes) => {
 const Render = () => {
     const [user,setUser] = useState(null)
     useEffect(()=>{
-        let currentUser = user;
+        let currentUser = user
         auth.onAuthStateChanged(()=>{
             if(auth.currentUser){
                 currentUser = auth.currentUser
                 setUser(currentUser)
             }
         })
-    });
+    })
 
     return (
         <AppRouter>

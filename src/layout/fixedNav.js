@@ -1,11 +1,11 @@
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core'
 import {isUserLoggedIn} from '../util/auth'
-import useStyles from '../page/home/_style';
-import * as auth from "../firebase/auth";
+import {homeStyles} from '../page/home/_style'
+import * as auth from "../firebase/auth"
 
 const FixedNav = () => {
-    let classes = useStyles()
+    let classes = homeStyles()
     let history = useHistory()
     const goToPage = (route) => {
         history.push(route)

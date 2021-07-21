@@ -1,4 +1,4 @@
 const ErrorPage = () => {
-    return (<>404</>);
+    return (<>404</>)
 }
-export default ErrorPage;
+export default ErrorPage

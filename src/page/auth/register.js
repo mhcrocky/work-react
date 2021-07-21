@@ -1,5 +1,5 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import {
     AppBar,
     Toolbar,
@@ -7,12 +7,12 @@ import {
     TextField,
     Container,
     Button
-} from '@material-ui/core';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
+} from '@material-ui/core'
+import { useFormik } from 'formik'
+import * as yup from 'yup'
 
-import * as auth from "../../firebase/auth";
-// import { useHistory } from 'react-router-dom';
+import * as auth from "../../firebase/auth"
+// import { useHistory } from 'react-router-dom'
 
 
 const validationSchema = yup.object({
@@ -24,7 +24,7 @@ const validationSchema = yup.object({
       .string('Enter your password')
       .min(8, 'Password should be of minimum 8 characters length')
       .required('Password is required'),
-});
+})
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     TextField:{
         margin:'10px 0px'
     }
-}));
+}))
 
 const RegisterPage = () => {
     const classes = useStyles()
@@ -51,7 +51,7 @@ const RegisterPage = () => {
         onSubmit: async(data) => {
             auth.register(data)
         },
-      });
+      })
 
     return (
     <div>
@@ -91,6 +91,6 @@ const RegisterPage = () => {
             </form>
         </Container>
     </div>
-    );
+    )
 }
 export default RegisterPage

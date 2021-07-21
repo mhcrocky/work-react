@@ -1,4 +1,4 @@
-import { createTheme } from "@material-ui/core";
+import { createTheme } from "@material-ui/core"
 
 const appbar = createTheme({
     palette: {
@@ -9,7 +9,7 @@ const appbar = createTheme({
     props:{
         margin: 'dense',
     }
-});
+})
 
 const main = createTheme({
     palette:{

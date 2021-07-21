@@ -1,4 +1,4 @@
-// import {auth} from "../firebase/index";
+// import {auth} from "../firebase/index"
 
 
 

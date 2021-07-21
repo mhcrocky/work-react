@@ -4,7 +4,7 @@ import bgHomeAbout      from '../../img/bg_1.jpg'
 import bgHomeProject    from '../../img/project.jpg'
 import bgHomeMember     from '../../img/bg_3.jpg'
 
-const useStyles =  makeStyles((theme)=>({
+const homeStyles =  makeStyles((theme)=>({
     homeRoot:{
         position: 'relative',
         width: '100%',
@@ -14,14 +14,11 @@ const useStyles =  makeStyles((theme)=>({
         backgroundRepeat: 'no-repeat',
         color: 'white',
         transition: 'all 1s ease-in-out',
-        'div':{
-            display:'none'
-        }
     },
     homeMain:{
         position : 'relative',
         display : 'flex',
-        overflow : 'auto',
+        overflow : 'hidden',
         height : '100vh',
         width : '100%',
         alignItems : 'center',
@@ -37,7 +34,7 @@ const useStyles =  makeStyles((theme)=>({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '0 20px',
+        padding: '0 10px',
         overflow: 'hidden',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
@@ -53,7 +50,8 @@ const useStyles =  makeStyles((theme)=>({
         '&:hover .desc': {
             transition: 'all 1s ease-in-out',
             opacity: '1',
-            height: 'calc(100% - 110px)',
+            height: '120vh',
+            marginBottom:'10px'
         },
         '& .title':{
             width: '100%',
@@ -100,21 +98,24 @@ const useStyles =  makeStyles((theme)=>({
         height: '100vh',
         position: 'relative',
         padding: '10px',
+        cursor:'default',
+        '& .profile':{
+            minHeight:'250px'
+        },
         '& .avartar':{
             transition: 'all 1s ease-in-out',
-            height: '230px',
-            width: '230px',
-            margin: '5px 10px',
+            height: '150px',
+            width: '150px',
+            margin: '5px 50px',
             position: 'relative',
-            top:'100px',
+            top:'30px',
+            '& .dname':{
+                top:'30px'
+            }
         },
-        '&:hover .avartar':{
-            height: '100px',
-            width: '100px',
-            top:'0px'
-        },
-        '&:hover .desc':{
-            height:'calc(100% - 175px)'
+        
+        '&:hover .dname':{
+            top:'0px!important'
         },
     },
     homeAbout:{
@@ -131,6 +132,29 @@ const useStyles =  makeStyles((theme)=>({
         zIndex: '1',
         right: '20px',
         top: '20px',
+    },
+    h0:{
+        height:'0px!important'
+    },
+    scrollUpBtn:{
+        position: 'fixed',
+        zIndex:1,
+        background: 'rgba(255,255,255,.3)',
+        border: '1px solid white',
+        bottom: theme.spacing(2),
+        right: theme.spacing(2),
+    },
+    scrollDownBtn:{
+        position: 'fixed',
+        bottom: theme.spacing(10),
+        background: 'rgba(255,255,255,.3)',
+        border: '1px solid white',
+        zIndex:1,
+        right: theme.spacing(2),
     }
 }))
-export default useStyles
+
+const projectStyles = makeStyles((theme)=>({
+
+}))
+export  {homeStyles,projectStyles}

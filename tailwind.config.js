@@ -14,6 +14,12 @@ module.exports = {
         'bg-img-main': "url('/src/img/bg_1.jpg')",
        })
     },
+    backgroundSize: {
+      'auto': 'auto',
+      'cover': 'cover',
+      'contain': 'contain',
+      '50vw': '50vw',
+    }
   },
   variants: {
     extend: {},

@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import {
     AppBar,
     Toolbar,
@@ -7,12 +7,12 @@ import {
     TextField,
     Container,
     Button
-} from '@material-ui/core';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
+} from '@material-ui/core'
+import { useFormik } from 'formik'
+import * as yup from 'yup'
 
-import * as auth from "../../firebase/auth";
-// import { useHistory } from 'react-router-dom';
+import * as auth from "../../firebase/auth"
+// import { useHistory } from 'react-router-dom'
 
 const validationSchema = yup.object({
     email: yup
@@ -23,7 +23,7 @@ const validationSchema = yup.object({
       .string('Enter your password')
       .min(8, 'Password should be of minimum 8 characters length')
       .required('Password is required'),
-  });
+  })
 
 const useStyles = makeStyles((theme) => ({
     formControl:{
@@ -32,10 +32,10 @@ const useStyles = makeStyles((theme) => ({
     TextField:{
         margin:'10px 0px'
     }
-}));
+}))
 
 export default function ButtonAppBar() {
-    const classes = useStyles();
+    const classes = useStyles()
     // let history = useHistory()
     const formik = useFormik({
         initialValues: {
@@ -46,11 +46,11 @@ export default function ButtonAppBar() {
         onSubmit: async(data) => {
            auth.login(data)
         },
-    });
+    })
     useEffect(()=>{
         // console.log(auth.currentUser)
         
-    });
+    })
     return (
     <div>
         <AppBar position="static">
@@ -91,5 +91,5 @@ export default function ButtonAppBar() {
             </form>
         </Container>
     </div>
-    );
+    )
 }

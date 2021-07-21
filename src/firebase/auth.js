@@ -1,13 +1,13 @@
 
-import {auth} from './index';
+import {auth} from './index'
 
 const login = async(data) => {
     auth.signInWithEmailAndPassword(data.email, data.password)
     .then((res)=>{
         console.log(res.user)
         if(!res.user.emailVerified){
-            res.user.sendEmailVerification();
-            auth.signOut();
+            res.user.sendEmailVerification()
+            auth.signOut()
             return {
                 status:'unverified'
             }
@@ -26,7 +26,7 @@ const login = async(data) => {
             error:error,
             status:'error'
         }
-    });
+    })
 }
 
 const register = (data) => {
@@ -34,14 +34,14 @@ const register = (data) => {
         .then((userCredential)=>{
             // send verification mail.
             console.log(userCredential)
-            userCredential.user.sendEmailVerification();
-            auth.signOut();
+            userCredential.user.sendEmailVerification()
+            auth.signOut()
             return {status:'sent_email'}
         })
         .catch(error=>{
             console.log(error)
             return {status:'error'}
-        });
+        })
 }
 
 const logOut = () => {
