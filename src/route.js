@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { BrowserRouter as AppRouter, Route, Switch ,Redirect} from 'react-router-dom'
 
 import * as Auth from './page/auth'
@@ -66,13 +66,13 @@ const ResolveRoutes = (Routes) => {
 const Render = () => {
     const [user,setUser] = useState(null)
 
-    auth.onAuthStateChanged((user)=>{
+    auth.onAuthStateChanged((data)=>{
         setUser(user)
     })
 
     return (
         <AppRouter>
-            <Switch>
+            <Switch user={user}>
                 {ResolveRoutes(Auth.routes)}
                 {ResolveRoutes(User.routes)}
                 {ResolveRoutes(Admin.routes)}
