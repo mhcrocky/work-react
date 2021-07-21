@@ -1,8 +1,6 @@
 import { makeStyles }   from "@material-ui/core"
-import bgDefault        from '../../img/about.jpg'
-import bgHomeAbout      from '../../img/bg_1.jpg'
-import bgHomeProject    from '../../img/project.jpg'
-import bgHomeMember     from '../../img/bg_3.jpg'
+import bgDefault        from '../../img/bg_3.jpg'
+
 
 const homeStyles =  makeStyles((theme)=>({
     homeRoot:{
@@ -12,6 +10,7 @@ const homeStyles =  makeStyles((theme)=>({
         backgroundImage: `url(${bgDefault})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'top',
         color: 'white',
         transition: 'all 1s ease-in-out',
     },
@@ -23,6 +22,44 @@ const homeStyles =  makeStyles((theme)=>({
         width : '100%',
         alignItems : 'center',
         transition : 'all 1s ease-in-out',
+        '& .blur':{
+            backdropFilter: 'blur(15px)',
+            WebkitBackdropFilter: 'blur(15px)',
+        },
+        '& .brightness':{
+            backdropFilter: 'brightness(1.5)',
+            WebkitBackdropFilter: 'brightness(1.5)',
+        },
+        '& .contrast':{
+            backdropFilter: 'contrast(1.5)',
+            WebkitBackdropFilter: 'contrast(1.5)',
+        },
+        '& .grayscale':{
+            backdropFilter: 'grayscale(1)',
+            WebkitBackdropFilter: 'grayscale(1)',
+        },
+        '& .hue-rotate':{
+            backdropFilter: 'hue-rotate(240deg)',
+            WebkitBackdropFilter: 'hue-rotate(240deg)',
+            background:'rgba(53 ,222 ,206 ,.6)'
+        },
+        '& .invert':{
+            backdropFilter: 'invert(0.7)',
+            WebkitBackdropFilter: 'invert(0.7)',
+        },
+        '& .opacity':{
+            backdropFilter: 'opacity(0.1)',
+            WebkitBackdropFilter: 'opacity(0.1)',
+        },
+        '& .saturate':{
+            backdropFilter: 'saturate(2)',
+            WebkitBackdropFilter: 'saturate(2)',
+        },
+        '& .sepia':{
+            background:'rgba:(200,17,14)',
+            backdropFilter: 'sepia(90%)',
+            WebkitBackdropFilter: 'sepia(90%)',
+        },
     },
     homePiece:{
         position: 'relative',
@@ -64,19 +101,20 @@ const homeStyles =  makeStyles((theme)=>({
             opacity: '0',
             justifyContent: 'center',
             transition: 'all 1s ease-in-out',
-            borderRadius: '5px',
-            border: '1px solid white',
-            backgroundColor: 'rgba(255,255,255,.7)',
-            color: 'black',
+            // borderRadius: '5px',
+            // border: '1px solid white',
+            // backgroundColor: 'rgba(255,255,255,.7)',
+            // color: 'black',
             padding: '10px',
             minWidth: '100px',
             width: '100%',
             display:'flex',
             height: '0px',
+            color:'black',
             '& text':{
                 height: 'calc(100% - 30px)',
             },
-            '& pre':{
+            '& code':{
                 width:'100%'
             }
         },
@@ -102,30 +140,22 @@ const homeStyles =  makeStyles((theme)=>({
         '& .profile':{
             minHeight:'250px'
         },
-        '& .avartar':{
+        '& .avatar':{
             transition: 'all 1s ease-in-out',
-            height: '150px',
-            width: '150px',
-            margin: '5px 50px',
+            maxWidth:'25vw',
             position: 'relative',
-            top:'30px',
-            '& .dname':{
-                top:'30px'
-            }
+            top:'50px',
         },
         
-        '&:hover .dname':{
+        '&:hover .avatar':{
             top:'0px!important'
         },
     },
     homeAbout:{
-        backgroundImage: `url(${bgHomeAbout})`
     },
     homeProject:{
-        backgroundImage: `url(${bgHomeProject})`
     },
     homeMember:{
-        backgroundImage: `url(${bgHomeMember})`
     },
     fixedNav:{
         position: 'fixed',

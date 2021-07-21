@@ -61,16 +61,13 @@ const ResolveRoutes = (Routes) => {
     )
 }
 
+
+
 const Render = () => {
     const [user,setUser] = useState(null)
-    useEffect(()=>{
-        let currentUser = user
-        auth.onAuthStateChanged(()=>{
-            if(auth.currentUser){
-                currentUser = auth.currentUser
-                setUser(currentUser)
-            }
-        })
+
+    auth.onAuthStateChanged((user)=>{
+        setUser(user)
     })
 
     return (
