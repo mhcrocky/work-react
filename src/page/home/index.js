@@ -1,7 +1,5 @@
 import { lazy } from 'react'
 
-// import ErrorPage from './error'
-
 export const routes = [
     {
         path: '/about',
@@ -12,9 +10,6 @@ export const routes = [
     },{
         path: '/project',
         component: lazy(() => import('./projects')),
-    },{
-        path: '/',
-        component: lazy(() => import('./home')),
     }
 ]
 

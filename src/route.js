@@ -10,6 +10,7 @@ import {isUserLoggedIn} from './util/auth'
 import {auth } from './firebase/index'
 
 const ErrorPage = lazy(()=>import('./page/home/error'))
+const HomePage = lazy(()=>import('./page/home/home'))
 
 const FinalRoute = props => {
     const route = props.route
@@ -73,11 +74,12 @@ const Render = () => {
     return (
         <AppRouter>
             <Switch user={user}>
+                <Route exact path={'/'} render={props=>(<HomePage  {...props} />)} />
                 {ResolveRoutes(Auth.routes)}
                 {ResolveRoutes(User.routes)}
                 {ResolveRoutes(Admin.routes)}
                 {ResolveRoutes(Home.routes)}
-                <Route exact path={'*'} render={props=>(<ErrorPage />)} />
+                <Route exact path={'*'} render={props=>(<ErrorPage {...props}/>)} />
             </Switch>
         </AppRouter>
 

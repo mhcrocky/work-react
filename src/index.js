@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 
 import {ThemeProvider} from '@material-ui/core/styles'
-import * as theme from './layout/config/theme'
+import * as theme from './page/_layout/config/theme'
 import reportWebVitals from './util/reportWebVitals'
 
 import * as Router from './route'

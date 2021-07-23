@@ -6,7 +6,7 @@ import {
     Button,
     ThemeProvider
 } from '@material-ui/core';
-import * as theme from './config/theme'
+import * as theme from '../config/theme'
 
 const useStyles = makeStyles((appbarTheme) => ({
     title: {
@@ -22,7 +22,7 @@ const Appbar = (props) => {
 
     const classes = useStyles()
     return (
-        // <ThemeProvider theme={theme.main}>
+        <ThemeProvider theme={theme.main}>
             <AppBar position="static" color={'inherit'}>
                 <Toolbar>
                     <div style={{ display:'contents' }}>    
@@ -33,7 +33,7 @@ const Appbar = (props) => {
                     <Button variant={'contained'} color={'inherit'}>Logout</Button>
                 </Toolbar>
             </AppBar>
-        // </ThemeProvider>
+        </ThemeProvider>
     )
 }
 export default Appbar

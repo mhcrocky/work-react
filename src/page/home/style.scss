@@ -1,0 +1,94 @@
+.wrapper{
+    background-image: url("/img/about.jpg");
+    @apply relative flex overflow-auto	w-full h-screen items-center transition-all duration-500 ease-in-out ;
+}
+.piece {
+    width: calc(100% / 2);
+    @apply relative flex h-screen cursor-pointer transition-all duration-500 ease-in-out font-bold flex-col items-center py-6 overflow-hidden bg-center bg-cover ;
+    &:hover {
+        @apply w-screen ;
+        .title{
+            @apply opacity-0 ; 
+        }
+        .desc {
+            @apply opacity-100 block	;
+        }
+    }
+    .title{
+        @apply w-full p-6 text-center	;
+    }
+
+    .text {
+        @apply uppercase stroke-1	fill-current	text-3xl ;
+        text-transform: uppercase ;
+        -webkit-text-stroke: 1px black;
+        -webkit-text-fill-color: white;
+        &:nth-child(2) {
+            @apply pt-2.5 ;
+        }
+    }
+
+    .desc {
+        @apply absolute flex top-5 left-5 justify-center opacity-0 hidden transition-all duration-500 ease-in-out rounded-md border border-solid	border-white text-black p-2	 ;
+        background-color: rgba(white, 0.3);
+        min-width: 100px;
+        width: calc(100% - 40px);
+        height: calc(100% - 40px);
+    }
+}
+.main{
+    width: 100%;
+    min-width: calc(100% / 5) ;
+    cursor: default;
+    .avatar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        height: 100%;
+        .img{
+            width: 12rem;
+            position: relative;
+            top: 3rem;
+            right: 5rem;
+            img{
+                border-radius: 100%;
+            }
+        }
+    }
+    .desc-main{
+        color: white;
+        font-size: 1.875rem;
+        display: flex;
+        position: relative;
+        height: 100%;
+        left: -20px;
+        margin-bottom: 10px;
+    }
+}
+.about-us{
+    background-image: url("/img/aboutme.jpg");
+
+}
+.projects{
+    background-image: url("/img/project.jpg");
+}
+.members{
+    background-image: url("/img/bg_3.jpg");
+}
+.fixed-nav{
+    @apply fixed z-30 top-5 right-5 ;
+    .btn{
+        color: white;
+    }
+}
+.btn-scroll{
+    position: fixed!important;
+    @apply bottom-6 border border-solid border-white z-10 right-5;
+    background: rgba(255,255,255,.3)
+}
+.scroll-up{
+    @apply  bottom-20 ;
+}
+.scroll-down{
+    @apply  bottom-5 ;
+}
