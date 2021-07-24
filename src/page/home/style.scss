@@ -138,6 +138,7 @@
 }
 
 .fixed-nav {
+    position: fixed;
     display: flex;
     z-index: 1;
     top: 1.25rem;
