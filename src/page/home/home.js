@@ -10,13 +10,13 @@ import logo from '../../img/logo.png'
 const Index = () => {
     const pieces = [{
         title:'About Us',
-        className:'about-us'
+        className:'hue-rotate'
     },{
         title:'projects',
-        className:'projects'
+        className:'opacity'
     },{
         title:'Members',
-        className:'members'
+        className:'brightness'
     }]
     const   [scroll,setScroll] = useState(0)
 
@@ -32,11 +32,13 @@ const Index = () => {
         </>
         )
     }
+    const handleLoad = () => {
+    }
     return (
     <div>
         <FixedNav />
         <ScrollButton />
-        <div className="home">
+        <div className="home" onLoad={()=>handleLoad()}>
             <div className="wrapper">
                 {pieces.map((piece,index)=>(
                     <HomePiece title={piece.title} className={piece.className} key={index}>

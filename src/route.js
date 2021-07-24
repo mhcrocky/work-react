@@ -67,7 +67,7 @@ const ResolveRoutes = (Routes) => {
 const Render = () => {
     const [user,setUser] = useState(null)
 
-    auth.onAuthStateChanged((data)=>{
+    auth.onAuthStateChanged((user)=>{
         setUser(user)
     })
 
@@ -84,6 +84,5 @@ const Render = () => {
         </AppRouter>
 
     )
-
 }
 export  {Render,ResolveRoutes,FinalRoute}
