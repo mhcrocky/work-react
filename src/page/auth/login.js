@@ -11,7 +11,7 @@ import {
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 
-import * as auth from "../../firebase/auth"
+import * as auth from "@src/firebase/auth"
 // import { useHistory } from 'react-router-dom'
 
 const validationSchema = yup.object({
