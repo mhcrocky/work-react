@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core'
-import {isUserLoggedIn} from '../../../util/auth'
-import {logOut} from "../../../firebase/auth"
+import {isUserLoggedIn} from '../../util/auth'
+import {logOut} from "../../firebase/auth"
 
 const FixedNav = () => {
     let history = useHistory()

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, Fab } from '@material-ui/core';
 import { KeyboardArrowDown, KeyboardArrowUp} from '@material-ui/icons';
 
-import {HomePiece,FixedNav} from '../_layout'
+import {HomePiece,FixedNav} from '@layout'
 import './style.scss'
 
 import logo from '../../img/logo.png'

@@ -1,4 +1,4 @@
-import {Card,Appbar} from '../_layout'
+import {Card,Appbar} from '@layout'
 
 const Dashboard = () => {
     return (
