@@ -1,24 +1,24 @@
 import { lazy, Suspense, useState } from 'react'
 import { BrowserRouter as AppRouter, Route, Switch ,Redirect} from 'react-router-dom'
 
-import * as Auth from './page/auth'
-import * as Home from './page/home'
-import * as Admin from './page/admin'
-import * as User from './page/user'
+// import * as Auth from './page/auth'
+// import * as Home from './page/home'
+// import * as Admin from './page/admin'
+// import * as User from './page/user'
 
-import {isUserLoggedIn} from './util/auth'
+// import {isUserLoggedIn} from './util/auth'
 import {auth } from './firebase/index'
 
-const ErrorPage = lazy(()=>import('./page/home/error'))
-const HomePage = lazy(()=>import('./page/home/home'))
+// const ErrorPage = lazy(()=>import('./page/home/error'))
+// const HomePage = lazy(()=>import('./page/home/home'))
 
 const FinalRoute = props => {
     const route = props.route
-    if (route.type ==='UN_AUTH'&&isUserLoggedIn()) {
-        return <Redirect to='/' />
-    } else if (route.type ==='AUTH' && !isUserLoggedIn()) {
-        return <Redirect to='/login' />
-    }
+    // if (route.type ==='UN_AUTH'&&isUserLoggedIn()) {
+    //     return <Redirect to='/' />
+    // } else if (route.type ==='AUTH' && !isUserLoggedIn()) {
+    //     return <Redirect to='/login' />
+    // }
     return (<route.component {...props} >
         {props.children??(
             <>{ResolveRoutes(props.children)}</>
@@ -74,12 +74,12 @@ const Render = () => {
     return (
         <AppRouter>
             <Switch user={user}>
-                <Route exact path={'/'} render={props=>(<HomePage  {...props} />)} />
+                {/* <Route exact path={'/'} render={props=>(<HomePage  {...props} />)} />
                 {ResolveRoutes(Auth.routes)}
                 {ResolveRoutes(User.routes)}
                 {ResolveRoutes(Admin.routes)}
                 {ResolveRoutes(Home.routes)}
-                <Route exact path={'*'} render={props=>(<ErrorPage {...props}/>)} />
+                <Route exact path={'*'} render={props=>(<ErrorPage {...props}/>)} /> */}
             </Switch>
         </AppRouter>
 
